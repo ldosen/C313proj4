@@ -48,19 +48,19 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
     @Override public void updateUIRuntime() { uiUpdateListener.updateTime(timeModel.getRuntime()); }
 
     // known states
-    private final StopwatchState STOPPED_RESET     = new StoppedResetState(this);
+    private final StopwatchState STOPPED     = new StoppedState(this);
     private final StopwatchState RUNNING     = new RunningState(this);
     private final StopwatchState INCREMENT = new IncrementState(this);
-    private final StopwatchState STOPPED = new StoppedState(this);
+    private final StopwatchState ALARMING = new AlarmingState(this);
 
     // transitions
     @Override public void toRunningState()    { setState(RUNNING); }
-    @Override public void toStoppedResetState()    { setState(STOPPED_RESET); }
+    @Override public void toStoppedState()    { setState(STOPPED); }
     @Override public void toIncrementState() { setState(INCREMENT); }
-    @Override public void toStoppedState() { setState(STOPPED); }
+    @Override public void toAlarmingState() { setState(ALARMING); }
 
     // actions
-    @Override public void actionInit()       { toStoppedResetState(); actionReset(); }
+    @Override public void actionInit()       { toStoppedState(); actionReset(); }
     @Override public void actionReset()      { timeModel.resetRuntime(); actionUpdateView(); }
     @Override public void actionStart()      { clockModel.start(); actionInc(); }
     @Override public void actionStop()       { clockModel.stop(); }

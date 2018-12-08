@@ -13,13 +13,13 @@ class RunningState implements StopwatchState {
     @Override
     public void onStartStop() {
         sm.actionReset();
-        sm.toStoppedResetState();
+        sm.toStoppedState();
     }
 
     @Override
     public void onTick() {
         if(sm.countedDown()){
-            sm.toStoppedState();
+            sm.toAlarmingState();
         }
         else{
             sm.actionDec();

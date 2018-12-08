@@ -3,9 +3,9 @@ package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
 import edu.luc.etl.cs313.android.simplestopwatch.R;
 
-class StoppedResetState implements StopwatchState {
+class AlarmingState implements StopwatchState {
 
-    public StoppedResetState(final StopwatchSMStateView sm) {
+    public AlarmingState(final StopwatchSMStateView sm) {
         this.sm = sm;
     }
 
@@ -13,12 +13,13 @@ class StoppedResetState implements StopwatchState {
 
     @Override
     public void onStartStop() {
-        sm.actionStart();
-        sm.toIncrementState();
+        sm.actionStop();
+        sm.toStoppedState();
     }
 
     @Override
     public void onTick() {
+        sm.actionSoundTheAlarm();
     }
 
     @Override
@@ -28,6 +29,6 @@ class StoppedResetState implements StopwatchState {
 
     @Override
     public int getId() {
-        return R.string.STOPPED_RESET;
+        return R.string.ALARMING;
     }
 }

@@ -13,13 +13,12 @@ class StoppedState implements StopwatchState {
 
     @Override
     public void onStartStop() {
-        sm.actionStop();
-        sm.toStoppedResetState();
+        sm.actionStart();
+        sm.toIncrementState();
     }
 
     @Override
     public void onTick() {
-        sm.actionSoundTheAlarm();
     }
 
     @Override
