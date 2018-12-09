@@ -16,7 +16,5 @@
     <string name="INCREMENT">Increment</string>
     <string name="STOPPED">Stopped/Reset</string>
 
-    <string name="model_key">edu.luc.etl.cs313.android.simplestopwatch.MODEL_KEY</string>
-    <string name="value_key">edu.luc.etl.cs313.android.simplestopwatch.VALUE_KEY</string>
 
 </resources>

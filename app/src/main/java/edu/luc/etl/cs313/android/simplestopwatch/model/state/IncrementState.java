@@ -15,6 +15,7 @@ class IncrementState implements StopwatchState {
     public void onStartStop() {
         sm.actionInc();
         sm.toIncrementState();
+        sm.setDelay(0);
     }
 
     @Override
@@ -24,6 +25,7 @@ class IncrementState implements StopwatchState {
         if (d == 3 || sm.reachMax()) {
             sm.actionSoundTheAlarm();
             sm.toRunningState();
+            sm.setDelay(0);
         }
     }
 

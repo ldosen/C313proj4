@@ -20,7 +20,7 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
 
     private final ClockModel clockModel;
 
-    int delay = 0;
+    private int delay = 0;
 
     /**
      * The internal state of this adapter component. Required for the State pattern.
